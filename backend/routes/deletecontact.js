@@ -1,10 +1,11 @@
 const express=require('express');
 const contact=require('../models/contacts')
+const verify=require('../Authorization/auth')
 
 const router= express.Router()
 router.use(express.json())
 
-router.delete('/deletecontact/:userid', async (req, res) => {
+router.delete('/deletecontact/:userid',verify, async (req, res) => {
     let userID = req.params.userid
     let ids = req.body.ids
   

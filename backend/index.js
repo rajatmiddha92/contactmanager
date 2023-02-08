@@ -6,6 +6,7 @@ const deleteContact=require('./routes/deletecontact')
 const registerRoute = require("./routes/register");
 const logInRoute = require('./routes/Login')
 const allcontact = require("./routes/getAllContacts")
+const searchByEmail = require("./routes/searchByEmail")
 const app = express();
 let port = 5500;
 conn();
@@ -19,5 +20,6 @@ app.use(logInRoute)
 app.use(addContact)
 app.use(deleteContact)
 app.use(allcontact)
+app.use(searchByEmail)
 
 app.listen(port, () => console.log(`app running on port ${port}`));

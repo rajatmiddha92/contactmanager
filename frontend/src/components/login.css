@@ -1,0 +1,114 @@
+
+.main-container{
+    width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+}
+.left-round{
+    position: absolute;
+    width: 15%;
+    height: 40%;
+    left: -3em;
+    top: -2.5em;
+    background: #CEF3FF;
+    border-radius: 50%;
+    
+
+}
+.right-round{
+    position: absolute;
+    width: 15%;
+    height: 40%;
+    left: 190vh;
+    top: 24em;
+    background: #CEF3FF;
+    border-radius: 50%;
+    opacity: 0.8;
+    
+}
+.form-container{
+    width: 90%;
+    min-height: 80vh;
+    margin: 40px auto;
+    background: #d6ecf3;
+    box-shadow: 0px 4px 22px #B2DFFF;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap:wrap;
+    text-align: center; 
+    opacity: 0.8;
+}
+.form-label{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 80vh;
+    
+}
+
+.cards{
+    height: 100%;
+    width: 46em;
+    
+}
+.cards>h1, .cards>p1{
+    text-align: center;
+    margin:0px;
+}
+.cards>h1{
+    font-family: Open Sans;
+    color: #7D8CC4;
+   
+}
+
+
+form{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+    padding: 2em;
+}
+.left-card{
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-end;
+   width: 245px;
+   min-height: 80vh;
+   
+}
+.form-card{
+    margin-top: 1em;
+    padding: 1em;
+    border: 1px solid #E2E2E2;
+    border-radius:0.5em;
+}
+.right-card{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 245px;
+   max-height: 80vh; 
+   text-align: right;
+}
+@media screen and (max-width: 1000px) {
+    .left-round, .right-round{
+        display: none;
+    }
+}
+.btn-signUp{
+    border: none;
+    background-color:#d6ecf3 ;
+    margin: 0em 2em;
+}
+.btn-signUp:hover{
+    border: 1px solid #E2E2E2;
+    background: #7D8CC4;
+    margin: 0em 2em;
+}
+.btn-signIn{
+    background: #7D8CC4;
+}
+#link{
+    text-decoration: none;
+}

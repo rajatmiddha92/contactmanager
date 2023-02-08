@@ -21,7 +21,7 @@ const Login = (props) => {
     return (
         <React.Fragment>
             <main className='container border d-flex justify-content-center align-items-center p-3 overflow-hidden'>
-                <div className='left-round'></div>
+                <img className='img-1' src={require('./images/Ellipse 31.png')}/>
                 <section className='row container border m-5 br-5 rounded-2'>
                     <div className="col">
                         <div className='row d-flex flex-row justify-content-end'>
@@ -58,7 +58,7 @@ const Login = (props) => {
                         </div>
                     </div>
                 </section>
-                <div className='right-round'></div>
+                <img className='img-2' src={require('./images/Ellipse 32.png')}/>
             </main>
         </React.Fragment>
     );

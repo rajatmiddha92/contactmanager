@@ -20,7 +20,7 @@ const Signup =(props)=> {
 }
     return (
       <React.Fragment>
-            <main className='main-container'>
+            <main className='container'>
                 <div className='left-round'></div>
                 <section className='form-container'>
                     <div className='cards left-card'>

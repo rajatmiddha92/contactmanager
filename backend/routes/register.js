@@ -10,8 +10,15 @@ router.use(express.json())
 //post method
 router.post('/register',async(req,res)=>{
    try{
-      const {email, password, confirmPassword} = req.body
-      if(password===confirmPassword){
+      const {email, password} = req.body
+      //check email exist already
+      const check = await userModel.findOne({email:email})
+      if(check){
+         return res.status(409).json({
+            status:"Success",
+            message:"User ID is Exists"
+         })
+      }
          bcrypt.hash(password, 10, async(err, cryptedPassword)=>{
             const result = await userModel.create({
                email,
@@ -22,16 +29,7 @@ router.post('/register',async(req,res)=>{
                Message:result
             })
          })  
-      }
-      else{
-         return res.json({
-            status:"Failed",
-            message:"Password Not with confirm password",
-            data:req.body
-         })
-      }
-      
-   }catch(e){
+      }catch(e){
       res.status(400).json({
          status:"Failed",
          Message:e

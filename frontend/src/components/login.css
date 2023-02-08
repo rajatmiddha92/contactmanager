@@ -1,11 +1,23 @@
 
-.main-container{
+/* .main-container{
     width: 100vw;
     min-height: 100vh;
     overflow: hidden;
+} */
+.main-cont{
+    position: relative;
 }
-
-.left-round{
+.img-1{
+    position: absolute;
+    left: 0;
+    top:0;
+}
+.img-2{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+/* .left-round{
     position: absolute;
     width: 20%;
     height: 40%;
@@ -13,8 +25,8 @@
     top: -2.5em;
     background: #CEF3FF;
     border-radius: 50%;
-}
-.right-round{
+} */
+/* .right-round{
     position: absolute;
     width: 20%;
     height: 40%;
@@ -24,7 +36,7 @@
     border-radius: 50%;
     opacity: 0.7;
     
-}
+} */
 /* .form-container{
     width: 90%;
     min-height: 80vh;

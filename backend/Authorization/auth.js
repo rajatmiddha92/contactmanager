@@ -1,11 +1,13 @@
 const jwt = require("jsonwebtoken")
 const User = require("./../models/user")
 
-module.exports = (req, res, next)=>{
-    const authorizationHeader = req.header.authorization
+
+const verify =(req, res, next)=>{
+
+    const authorizationHeader = req.headers.authorization
     if(authorizationHeader){
-        const token = authorizationHeader.split(" ")[1]
-        jwt.verify(token, process.env.SECRET, async(err, payload)=>{
+        const token = authorizationHeader
+        jwt.verify(token, 'ContactManager', async(err, payload)=>{
             try{
                 if(err){
                     return res.status(401).json({error: "Unauthorized!"})
@@ -23,3 +25,4 @@ module.exports = (req, res, next)=>{
         return res.status(403).json({error: "Forbidden"})
     }
 }
+module.exports=verify

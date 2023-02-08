@@ -17,9 +17,9 @@ const storage = multer.diskStorage({
   
   const upload = multer({ storage: storage });
 
-  
   router.post('/addcontact', upload.single('file'), (req, res) => {
     const userID = req.body.userId
+    
     csv()
       .fromFile(req.file.path)
       .then(jsonData => {

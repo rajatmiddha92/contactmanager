@@ -31,9 +31,11 @@ router.post("/login", async(req, res)=>{
                         exp: Math.floor(Date.now() / 1000) + (60 * 60),
                         data: data._id
                       }, secret);
+                      
+                    const userdetails = {...data._doc, password: undefined}
                     res.status(200).json({
                         status:"Success",
-                        message:token
+                        message: {token, userdetails}
                     })
                 }
             })

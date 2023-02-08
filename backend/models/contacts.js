@@ -8,7 +8,11 @@ const contactSchema = mongoose.Schema({
     email:String,
     phonenumber:Number,
     category:String,
-    userID:String
+    userID:String,
+    postedBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "user"
+    }
   });
   const contacts= mongoose.model("contacts", contactSchema, "contacts");
 

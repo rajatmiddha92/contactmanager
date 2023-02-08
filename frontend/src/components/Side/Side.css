@@ -1,0 +1,48 @@
+.side{
+width: 10vw;
+height: 100vh;
+left: 0px;
+top: 0px;
+border: 1px solid red;
+background: #CEF3FF;
+display:flex;
+flex-direction: column;
+justify-content: space-between;
+}
+
+.logo{
+color:#0884FF;
+margin: 1rem;
+}
+
+.side-dashboard{
+    border: 1px solid white;
+   
+    margin: 1rem;
+}
+.side-dashboard > h4{
+    color: #181818
+}
+
+.side-totalContact{
+    background: #2DA5FC;
+    border-radius: 0.5em;
+    margin: 1rem;
+    padding: 0.1rem;
+}
+
+.total-contact{
+    color: #ddd;
+}
+
+.logout-div{
+    border: 1px solid white;  
+}
+.logout{
+    border: 1px solid white;  
+    margin: 2.5rem;
+}
+
+.side-upper{
+    border: 1px solid white;
+}

@@ -30,3 +30,10 @@ button{
     left: 50%;
     z-index: 2;
 }
+.deletefile{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    z-index: 2;
+
+}

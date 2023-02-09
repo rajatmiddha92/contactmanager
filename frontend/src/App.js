@@ -9,12 +9,13 @@ import Signup from './components/Signup';
 // import TotalContact from './components/TotalContact';
 // import Side from './components/Side';
 import Main from './components/Main/Main';
+import ImportFile from './components/ImportFile';
 const App=()=> {
  return(
   <>
   <BrowserRouter>
   <Routes>
-    <Route path='/' element={<Login />} />
+    <Route path='/' element={<Main />} />
     <Route path='/signup' element={<Signup/>}/>
   </Routes>
   </BrowserRouter>

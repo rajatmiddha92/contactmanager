@@ -1,9 +1,36 @@
 .totalContact{
-   
-width: 90vw;
-height: 100vh;
-left: 0px;
-top: 0px;
-border: 1px solid red;
-background: #F5F5F5;
+    width: 85vw;
+    height: 100vh;
+    left: 0px;
+    top: 0px;
+    background: white
+}
+
+.thead{
+    background-color: #B2DFFF;
+}
+
+.abcd{
+   display: flex;
+   justify-content: space-between;
+}
+
+.abcd, .sort > img{
+    margin-right: 0.3rem;
+}
+
+.image-sort{
+    margin-right: 1rem;
+}
+
+.table tbody tr > td { 
+     background-color: #B2DFFF4F; 
+}
+
+.tableaction{
+    display: flex;
+}
+
+.table-row-edit{
+    margin-right: 2rem;
 }

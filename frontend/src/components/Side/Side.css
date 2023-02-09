@@ -1,25 +1,28 @@
 .side{
-width: 10vw;
+width: 15vw;
 height: 100vh;
 left: 0px;
 top: 0px;
-border: 1px solid red;
 background: #CEF3FF;
 display:flex;
 flex-direction: column;
 justify-content: space-between;
 }
 
+.side-upper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
 .logo{
 color:#0884FF;
 margin: 1rem;
 }
 
 .side-dashboard{
-    border: 1px solid white;
-   
     margin: 1rem;
 }
+
 .side-dashboard > h4{
     color: #181818
 }
@@ -35,14 +38,6 @@ margin: 1rem;
     color: #ddd;
 }
 
-.logout-div{
-    border: 1px solid white;  
-}
 .logout{
-    border: 1px solid white;  
     margin: 2.5rem;
-}
-
-.side-upper{
-    border: 1px solid white;
 }

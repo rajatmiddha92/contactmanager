@@ -6,6 +6,9 @@ import Functionalities from './Functionalities/Functionalities';
 import editimage from "./../images/Edit.png";
 import deleteimage from "./../images/delete.png";
 import { useEffect } from 'react';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { red, blue } from '@mui/material/colors';
+import EditIcon from '@mui/icons-material/Edit';
 // import sort from "./../images/sorting.png"
 // import columnDevide from "./../images/columnDevide.png"
 
@@ -13,6 +16,7 @@ import { useEffect } from 'react';
 const TotalContacts = (props) => {
 
     const [arr, setArr] = useState([])
+    const [deleteId, setDeleteId] = useState()
     const userId = JSON.parse(localStorage.getItem("userdetails"))._id
     const token = JSON.parse(localStorage.getItem("token"))
     useEffect(()=>{
@@ -28,7 +32,10 @@ const TotalContacts = (props) => {
         setArr(result.data.contacts)
         }
 
- 
+        const handleDeleteId=(e,id)=>{
+            setDeleteId(()=>e.target.checked)
+            console.log(deleteId)
+        }
 
     return (
         <div className='totalContact'>
@@ -51,56 +58,10 @@ const TotalContacts = (props) => {
                     <th scope="col">Action</th>    
                 </tr>
             </thead>
-
-            {/* <thead className='thead'>
-                <tr>
-                    <td className='abcd'>Checkbox</td>
-                    <td scope="col" className='abcd'>
-                        <p>Name</p>
-                        <img  src={columnDevide} alt="columnDevide" />
-                    </td>
-                    <td scope="col"  className='abcd'>
-                        <p>Designation</p>
-                        <div className='div-sort'>
-                            <img className='image-sort' src={sort} alt="sort" />
-                            <img  src={columnDevide} alt="columnDevide" />
-                        </div>
-                    </td>
-                    <td scope="col"  className='abcd'>
-                        <p>Company</p>
-                        <div className='div-sort'>
-                            <img className='image-sort' src={sort} alt="sort" />
-                            <img  src={columnDevide} alt="columnDevide" />
-                        </div>
-                    </td>
-                    <td scope="col"  className='abcd'>
-                        <p>Industry</p>
-                        <div className='div-sort'>
-                            <img className='image-sort' src={sort} alt="sort" />
-                            <img  src={columnDevide} alt="columnDevide" />
-                        </div>
-                    </td>
-                    <td scope="col"  className='abcd'>
-                        <p>Email</p>
-                        <img  src={columnDevide} alt="columnDevide" />
-                    </td>
-                    <td scope="col"  className='abcd'>
-                        <p>Phone Number</p>
-                        <img  src={columnDevide} alt="columnDevide" />
-                    </td>
-                    <td scope="col"  className='abcd'>
-                        <p>Country</p>
-                        <img  src={columnDevide} alt="columnDevide" />
-                    </td>
-                    <td scope="col" className='abcd'>Action</td>    
-                </tr>
-            </thead> */}
-
-
             <tbody>    
                 {arr.map((data, key) => {
                     return (<tr key={key}>
-                        <td><input type="checkbox"/></td>
+                        <td><input type="checkbox" onChange={(e)=>{handleDeleteId(e,data._id); setDeleteId(()=>e.target.checked)}}/></td>
                         <td>{data.name}</td>
                         <td>{data.designation}</td>
                         <td>{data.company}</td>
@@ -111,14 +72,12 @@ const TotalContacts = (props) => {
                         <td>
                             <div className='tableaction'>
                                 <div className='table-row-edit'>
-                                    <button>
-                                        <img src={editimage} alt="edit" />
-                                    </button>
+                                   <EditIcon sx={{color:blue[400]}}/>
                                 </div>
                                 <div>
-                                    <button>
-                                        <img src={deleteimage} alt="delete" />
-                                    </button>
+                                    
+                                    <DeleteIcon sx={{color:red[400]}}/>
+                                   
                                 </div>
                             </div>
                         </td>

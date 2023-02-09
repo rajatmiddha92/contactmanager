@@ -7,9 +7,12 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import ImportExportIcon from '@mui/icons-material/ImportExport';
 import exportFile from "./../../images/exportFile.png"
 import ImportFile from "../../ImportFile";
+import ImportComplete from "../../ImportComplete";
 
 const Functionalities = ()=>{
 const [importFile, setImportFile] = useState(false)
+const [importComplete, setImportComplet] = useState(false)
+
     return <>
             <div className='below-header-nav'>
                 <div className='below-header-nav-left'>
@@ -39,9 +42,14 @@ const [importFile, setImportFile] = useState(false)
 
                 </div>
                 <div className="importFile">
-                    <ImportFile trigger={importFile} setfile={setImportFile} > 
+                    <ImportFile trigger={importFile} setfile={setImportFile} importCompletStatus={setImportComplet}  > 
                     </ImportFile>
                 </div>
+                <div className="importFile">
+                    <ImportComplete trigger2={importComplete} > 
+                    </ImportComplete>
+                </div>
+                
                 
             </div>
     </>

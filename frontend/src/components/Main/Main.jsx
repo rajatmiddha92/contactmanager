@@ -14,11 +14,11 @@ const Main = ()=>{
     console.log(location)
     return <>
     <div className="main">
-        <div>
+        <div style={{position:"sticky", top:"0",  position: "-webkit-sticky"}}>
             <Side />
         </div>
         <div>
-            <TotalContacts update={update} />
+            <TotalContacts update={update}/>
         </div>
     </div>
     

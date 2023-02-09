@@ -4,7 +4,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import './importcompleted.css'
 
 const ImportComplete =(props)=> {
-    return (
+    return(props.trigger2)?(
         <React.Fragment>
         <div className='container-2'>
         <section className='box-2'>
@@ -14,7 +14,7 @@ const ImportComplete =(props)=> {
         </section>
       </div>
         </React.Fragment>
-    );
+    ):""
 }
 
 export default ImportComplete;

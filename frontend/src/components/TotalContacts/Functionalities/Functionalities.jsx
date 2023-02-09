@@ -25,14 +25,11 @@ const Functionalities = ()=>{
                     </div>
                 </div>
                 <div className='below-header-nav-right'>
-                    <div className='delete'>
-                        <DeleteOutlineIcon />
-                        <button>Delete</button>
-                        
+                    <div className='delete'>   
+                        <button><DeleteOutlineIcon />Delete</button>    
                     </div>
                     <div className='import'>
-                        <ImportExportIcon />
-                        <button>Import</button>                      
+                        <button><ImportExportIcon />Import</button>                      
                     </div>
                     <div className='export'>
                         <img src={exportFile}  alt="exportFile" />

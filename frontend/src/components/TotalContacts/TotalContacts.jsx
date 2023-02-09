@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./TotalContacts.css"
 import Header from './Header/Header';
 import Functionalities from './Functionalities/Functionalities';
 import editimage from "./../images/Edit.png";
 import deleteimage from "./../images/delete.png";
-import sort from "./../images/sorting.png"
-import columnDevide from "./../images/columnDevide.png"
+import { useEffect } from 'react';
+// import sort from "./../images/sorting.png"
+// import columnDevide from "./../images/columnDevide.png"
 
 
 const TotalContacts = () => {
+
+    const [arr, setArr] = useState([])
+
+    useEffect( async ()=>{
+
+        try{
+            const response = await fetch("http://localhost:5500/allcontact")
+        } catch(e){
+            console.log(e)
+        }
+    })
 
     const array = [
     { name: "aman", designation: "manager", company: "delhi", Industry: "it", Email: "ama@gmail.com", Phone_Number: "523665", Country: "india", Action: "action" },
@@ -26,15 +38,15 @@ const TotalContacts = () => {
             <table class="table table-striped" selecttable>
             <thead className='thead'>
                 <tr>
-                    <td>check</td>
-                    <td scope="col">Name</td>
-                    <td scope="col">Designation</td>
-                    <td scope="col">Company</td>
-                    <td scope="col">Industry</td>
-                    <td scope="col">Email</td>
-                    <td scope="col">Phone Number</td>
-                    <td scope="col">Counrty</td>
-                    <td scope="col">Action</td>    
+                    <th>check</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Designation</th>
+                    <th scope="col">Company</th>
+                    <th scope="col">Industry</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Counrty</th>
+                    <th scope="col">Action</th>    
                 </tr>
             </thead>
 
@@ -97,10 +109,14 @@ const TotalContacts = () => {
                         <td>
                             <div className='tableaction'>
                                 <div className='table-row-edit'>
-                                    <img src={editimage} alt="edit" />
+                                    <button>
+                                        <img src={editimage} alt="edit" />
+                                    </button>
                                 </div>
                                 <div>
-                                    <img src={deleteimage} alt="delete" />
+                                    <button>
+                                        <img src={deleteimage} alt="delete" />
+                                    </button>
                                 </div>
                             </div>
                         </td>

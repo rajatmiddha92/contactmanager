@@ -13,7 +13,7 @@ function Header(props) {
                 <h4>Total Contacts</h4>
             </div>
             <div className='search-bar'>
-                <SearchIcon />
+                <button style={{backgroundColor:"#F2F2F2"}}><SearchIcon /></button>
                 <input className='search-by-email' type="email"  value={search} placeholder="tejavardhanreddy464@gmail.com" onChange={(e)=>setSearch(e.target.value)} /> 
             </div>
             <div className='header-user-admin'>

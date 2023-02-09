@@ -3,8 +3,10 @@ import './importfile.css';
 import NoteAddIcon from '@mui/icons-material/NoteAdd';
 import Button from '@mui/material/Button';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const ImportFile = (props) => {
+    const navigate=useNavigate()
   const [file, setFile] = useState(null);
   const handleFileUpload = (e) => {
   setFile(e.target.files[0]);
@@ -29,6 +31,7 @@ useEffect(() => {
         .then(response => {
           console.log(response.data);
           props.setfile(false)
+          navigate('/main',{state:1})
         })
         .catch(error => {
           console.error(error);

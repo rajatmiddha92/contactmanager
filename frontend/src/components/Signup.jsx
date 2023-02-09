@@ -45,10 +45,10 @@ const Signup =(props)=> {
 }
     return (
         <React.Fragment>
-        <main className='card .main-cont d-flex justify-content-center align-items-center p-3 overflow-hidden'>
+        <main className='main-cont'>
             <img className='img-1' src={require('./images/Ellipse 31.png')} alt="round"/>
-            <section className='row container border m-5 br-5 rounded-2 signup-form-container'>
-                <div className="col">
+            <section className='form-container col-lg-10'>
+                
 
                         <img src={dontsPic} className="dotsImg1"  alt="dots" />
           
@@ -89,10 +89,10 @@ const Signup =(props)=> {
                             </div>
                         </div>
 
-                        <img src={dontsPic} alt="dots" style={{"max-width":"200px", "max-height":"200px",opacity:0.8,position:"absolute", bottom:"0px", left:"0px",margin: "10px"}} id='dotsImg2' />
+                        <img src={dontsPic} alt="dots" style={{"width":"20%", "height":"30%",opacity:0.8,position:"absolute", bottom:"0px", left:"0px",margin: "10px"}} id='dotsImg2' />
 
                     </div>
-                </div>
+                
             </section>
             <img className='img-2'  src={require('./images/Ellipse 32.png')} alt="right dot"/>
             <Validation trigger={valid}>

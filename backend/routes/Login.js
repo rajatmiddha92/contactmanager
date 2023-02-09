@@ -17,13 +17,16 @@ router.post("/login", async(req, res)=>{
         if(!data){
             return res.status(404).json({
                 status:"Failed",
-                message:"Not Found"
+                message:"User Id Not Found"
             })
         }
         else{
             bcrypt.compare(password, data.password, (err, result)=>{
                 if(err){
-                    console.log(err.message)
+                    res.status(403).json({
+                        status:"Failed",
+                        message:"Invalid User Password"
+                    })   
                 }
                 else{
                     console.log(data._id)

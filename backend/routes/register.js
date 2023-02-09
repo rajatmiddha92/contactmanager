@@ -15,7 +15,7 @@ router.post('/register',async(req,res)=>{
       const check = await userModel.findOne({email:email})
       if(check){
          return res.status(409).json({
-            status:"Success",
+            status:"Failure",
             message:"User ID is Exists"
          })
       }

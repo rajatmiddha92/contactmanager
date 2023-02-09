@@ -1,12 +1,11 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState,useEffect, Children } from 'react';
 import './importfile.css';
 import NoteAddIcon from '@mui/icons-material/NoteAdd';
 import Button from '@mui/material/Button';
 import axios from 'axios';
 
-const ImportFile = () => {
+const ImportFile = (props) => {
   const [file, setFile] = useState(null);
-  
   const handleFileUpload = (e) => {
   setFile(e.target.files[0]);
 };
@@ -15,18 +14,21 @@ useEffect(() => {
     if (!file) {
       return;
     }
-
+    const userId = JSON.parse(localStorage.getItem("userdetails"))._id
+    const token = JSON.parse(localStorage.getItem("token"))
     const formData = new FormData();
     formData.append('file', file);
-    formData.append('userId', 123456);
+    formData.append('userId', userId);
     try {
       axios.post(`http://localhost:5500/addcontact`, formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          'Content-Type': 'multipart/form-data',
+          "Authorization":token
         }
       })
         .then(response => {
           console.log(response.data);
+          props.setfile(false)
         })
         .catch(error => {
           console.error(error);
@@ -41,10 +43,11 @@ useEffect(() => {
     setFile(e.dataTransfer.files[0]);
   };
   const Cancel=()=>{
+    props.setfile(false)
     setFile(null)
   }
 
-  return (
+  return(props.trigger)?(
     <React.Fragment>
       <div className='container'>
         <section className='box' onDrop={handleFileDrop} onDragOver={(e) => e.preventDefault()}>
@@ -56,8 +59,9 @@ useEffect(() => {
           <Button className='btn' onClick={Cancel} variant="contained">Cancel</Button>
         </section>
       </div>
+      {props.children}
     </React.Fragment>
-  );
+  ):""
 };
 
 export default ImportFile;

@@ -51,7 +51,7 @@ const Login = (props) => {
                             <img src={dontsPic} className="dotsImg1"  alt="dots" />
               
                         <div className="row d-flex align-items-center justify-content-center ">
-                            <div className="col-8 border d-flex align-items-center justify-content-center" style={{ textAlign: "center" }}>
+                            <div className="col-8  d-flex align-items-center justify-content-center" style={{ textAlign: "center" }}>
                                 <div className="row">
 
                                     <div className="col">

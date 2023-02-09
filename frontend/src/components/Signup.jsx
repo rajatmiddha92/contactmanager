@@ -53,7 +53,7 @@ const Signup =(props)=> {
                         <img src={dontsPic} className="dotsImg1"  alt="dots" />
           
                     <div className="row d-flex align-items-center justify-content-center ">
-                        <div className="col-8 border d-flex align-items-center justify-content-center" style={{ "text-align": "center" }}>
+                        <div className="col-8  d-flex align-items-center justify-content-center" style={{ "text-align": "center" }}>
                             <div className="row">
 
                                 <div className="col">
@@ -89,7 +89,7 @@ const Signup =(props)=> {
                             </div>
                         </div>
 
-                        <img src={dontsPic} alt="dots" style={{"width":"20%", "height":"30%",opacity:0.8,position:"absolute", bottom:"0px", left:"0px",margin: "10px"}} id='dotsImg2' />
+                        <img src={dontsPic} alt="dots" style={{width:"20%", height:"30%",opacity:0.8,position:"absolute", bottom:"0px", left:"0px",margin: "10px"}} id='dotsImg2' />
 
                     </div>
                 

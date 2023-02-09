@@ -13,14 +13,19 @@ import { useEffect } from 'react';
 const TotalContacts = () => {
 
     const [arr, setArr] = useState([])
-     let userid=JSON.parse(localStorage.getItem('userdetails'))._id
+    const userId = JSON.parse(localStorage.getItem("userdetails"))._id
+    const token = JSON.parse(localStorage.getItem("token"))
     useEffect(()=>{
         const fetchData=async()=>{
-        let result=await axios.get(`http://localhost:5500/allcontact/${userid}`)
+        let result=await axios.get(`http://localhost:5500/allcontact/${userId}`,{
+            headers:{
+                "Authorization":token
+            }
+        })
         setArr(result.data.contacts)
         }
         fetchData()
-    },[])
+    },[arr])
 
     
 

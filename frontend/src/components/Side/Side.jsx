@@ -3,9 +3,16 @@ import "./Side.css"
 import LogoutIcon from '@mui/icons-material/Logout';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import ContactsIcon from '@mui/icons-material/Contacts';
-
+import { useNavigate } from 'react-router-dom';
 
 const Side = ()=> {
+   const navigate=useNavigate()
+    const handlelogout=()=>{
+         localStorage.removeItem('userdetails')
+         localStorage.removeItem('token')
+         navigate('/')
+    }
+
     return (
         <div className='side'>
             <div className='side-upper'>
@@ -24,7 +31,7 @@ const Side = ()=> {
             <div className='logout-div'>
                 <h6 className='logout'>
                     <LogoutIcon />
-                    <button>Log out</button>
+                    <button onClick={handlelogout}>Log out</button>
                 </h6>
             </div>
         </div>

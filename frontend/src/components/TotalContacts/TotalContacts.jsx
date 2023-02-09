@@ -10,24 +10,25 @@ import { useEffect } from 'react';
 // import columnDevide from "./../images/columnDevide.png"
 
 
-const TotalContacts = () => {
+const TotalContacts = (props) => {
 
     const [arr, setArr] = useState([])
     const userId = JSON.parse(localStorage.getItem("userdetails"))._id
     const token = JSON.parse(localStorage.getItem("token"))
     useEffect(()=>{
-        const fetchData=async()=>{
-        let result=await axios.get(`http://localhost:5500/allcontact/${userId}`,{
+        fetchData()
+    },[])
+    const fetchData=async()=>{
+        let result=await axios.get(`http://localhost:5500/allcontacts/${userId}`,{
             headers:{
                 "Authorization":token
             }
         })
+        
         setArr(result.data.contacts)
         }
-        fetchData()
-    },[arr])
 
-    
+ 
 
     return (
         <div className='totalContact'>
@@ -99,7 +100,7 @@ const TotalContacts = () => {
             <tbody>    
                 {arr.map((data, key) => {
                     return (<tr key={key}>
-                        <td><input type="check" /></td>
+                        <td><input type="checkbox"/></td>
                         <td>{data.name}</td>
                         <td>{data.designation}</td>
                         <td>{data.company}</td>

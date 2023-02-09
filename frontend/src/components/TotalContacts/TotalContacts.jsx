@@ -13,14 +13,14 @@ const TotalContacts = () => {
 
     const [arr, setArr] = useState([])
 
-    useEffect( async ()=>{
+    // useEffect( async ()=>{
 
-        try{
-            const response = await fetch("http://localhost:5500/allcontact")
-        } catch(e){
-            console.log(e)
-        }
-    })
+    //     try{
+    //         const response = await fetch("http://localhost:5500/allcontact")
+    //     } catch(e){
+    //         console.log(e)
+    //     }
+    // })
 
     const array = [
     { name: "aman", designation: "manager", company: "delhi", Industry: "it", Email: "ama@gmail.com", Phone_Number: "523665", Country: "india", Action: "action" },

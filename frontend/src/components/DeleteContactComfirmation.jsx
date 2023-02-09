@@ -3,22 +3,44 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import {blue } from '@mui/material/colors';
 import './delcontactinfo.css'
 import Button from '@mui/material/Button';
+import axios from 'axios';
 
-const DeleteContactComfirmation=()=> {
+const DeleteContactComfirmation=(props)=> {
+   
+    const hide=()=>{
+        props.hide(false)
+    }
+
+    const handledelete = async () => {
+  console.log(props.arr);
+  const userid = JSON.parse(localStorage.getItem("userdetails"))._id;
+  await axios.delete(`http://localhost:5500/deletecontact/${userid}`, {
+    data: { ids: props.arr },
+    headers: {
+      Authorization: JSON.parse(localStorage.getItem("token"))
+    }
+  });
+  console.log(props)
+  props.hide(false);
+  props.rend()
+  props.checkids([])
+};
+
+
     return (
-        <>
+        <>{props.trigger3 ?
         <div className='container-2'>
         <section className='box-3'>
           <DeleteIcon sx={{ fontSize: 40,color:blue[400] }}  className='sucess' />
           <h4 className='text-head-3'>Delete Contacts</h4>
           <h5 className='drop-3'>Sure you want delete this Contacts ?</h5>
           <div style={{display:'inline-block'}}>
-          <Button className='cancel' variant="contained">Cancel</Button>
-          <Button style={{color:'black'}} variant="text">OK</Button>
+          <Button onClick={hide} className='cancel' variant="contained">Cancel</Button>
+          <Button onClick={handledelete} style={{color:'black'}} variant="text">OK</Button>
           </div>
           
         </section>
-      </div>
+      </div> :  null}
         </>
     );
 }

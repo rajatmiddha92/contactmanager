@@ -16,7 +16,7 @@ import EditIcon from '@mui/icons-material/Edit';
 const TotalContacts = (props) => {
 
     const [arr, setArr] = useState([])
-    const [deleteId, setDeleteId] = useState()
+    const [checkedIds, setCheckedIds] = useState([]);
     const userId = JSON.parse(localStorage.getItem("userdetails"))._id
     const token = JSON.parse(localStorage.getItem("token"))
     useEffect(()=>{
@@ -32,15 +32,19 @@ const TotalContacts = (props) => {
         setArr(result.data.contacts)
         }
 
-        const handleDeleteId=(e,id)=>{
-            setDeleteId(()=>e.target.checked)
-            console.log(deleteId)
-        }
-
+    const handleCheckboxChange = (event) => {
+    const { target } = event;
+    const { id } = target;
+    if (target.checked) {
+      setCheckedIds([...checkedIds, id]);
+    } else {
+      setCheckedIds(checkedIds.filter((checkedId) => checkedId !== id));
+    }
+  };
     return (
         <div className='totalContact'>
             <Header />
-            <Functionalities />
+            <Functionalities ids={checkedIds} checkids={setCheckedIds} rend={fetchData}/>
 
             {/* TABLE POPULATION OF CONTACTS  */}
 
@@ -61,7 +65,8 @@ const TotalContacts = (props) => {
             <tbody>    
                 {arr.map((data, key) => {
                     return (<tr key={key}>
-                        <td><input type="checkbox" onChange={(e)=>{handleDeleteId(e,data._id); setDeleteId(()=>e.target.checked)}}/></td>
+                        <td><input type="checkbox"  id={data._id}
+                         onChange={handleCheckboxChange}/></td>
                         <td>{data.name}</td>
                         <td>{data.designation}</td>
                         <td>{data.company}</td>
@@ -85,8 +90,9 @@ const TotalContacts = (props) => {
                 })}
             </tbody>
             </table>
-
+           
         </div>
+        
     );
 }
 

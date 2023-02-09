@@ -8,11 +8,18 @@ import ImportExportIcon from '@mui/icons-material/ImportExport';
 import exportFile from "./../../images/exportFile.png"
 import ImportFile from "../../ImportFile";
 import ImportComplete from "../../ImportComplete";
+import DeleteContactComfirmation from "../../DeleteContactComfirmation";
 
-const Functionalities = ()=>{
+const Functionalities = (props)=>{
 const [importFile, setImportFile] = useState(false)
 const [importComplete, setImportComplet] = useState(false)
+const [deletefile,setDeletefile]=useState(false)
 
+const handledelete=async()=>{
+    let {ids}=props
+    console.log(ids)
+    setDeletefile(true)
+}
     return <>
             <div className='below-header-nav'>
                 <div className='below-header-nav-left'>
@@ -30,7 +37,7 @@ const [importComplete, setImportComplet] = useState(false)
                 </div>
                 <div className='below-header-nav-right'>
                     <div className='delete'>   
-                        <button><DeleteOutlineIcon />Delete</button>    
+                        <button onClick={handledelete}><DeleteOutlineIcon />Delete</button>    
                     </div>
                     <div className='import'>
                         <button onClick={()=>{setImportFile(true)}}><ImportExportIcon />Import</button>                      
@@ -48,6 +55,9 @@ const [importComplete, setImportComplet] = useState(false)
                 <div className="importFile">
                     <ImportComplete trigger2={importComplete} > 
                     </ImportComplete>
+                </div>
+                <div className="deletefile">
+                  <DeleteContactComfirmation trigger3={deletefile} arr={props.ids} checkids={props.checkids} rend={props.rend} hide={setDeletefile}/>
                 </div>
                 
                 

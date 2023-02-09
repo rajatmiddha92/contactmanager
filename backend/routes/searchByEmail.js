@@ -4,7 +4,7 @@ const contact = require("./../models/contacts")
 const users = require("../models/user")
 const checkAuth = require("./../Authorization/auth")
 
-router.get("/allcontact/:userID/:search", async (req, res) => {
+router.get("/allcontacts/:userID/:search", checkAuth, async (req, res) => {
     console.log(req.params.userID)
     let search = `^${req.params.search}`
     try {

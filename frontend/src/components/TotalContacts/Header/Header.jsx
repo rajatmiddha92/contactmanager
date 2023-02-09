@@ -14,7 +14,7 @@ function Header(props) {
             </div>
             <div className='search-bar'>
                 <button style={{backgroundColor:"#F2F2F2"}}><SearchIcon /></button>
-                <input className='search-by-email' type="email"  value={search} placeholder="tejavardhanreddy464@gmail.com" onChange={(e)=>setSearch(e.target.value)} /> 
+                <input className='search-by-email' type="email"  value={search} placeholder="search by email" onChange={(e)=>setSearch(e.target.value)} /> 
             </div>
             <div className='header-user-admin'>
                 <div>

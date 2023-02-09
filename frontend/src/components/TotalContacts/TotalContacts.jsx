@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import "./TotalContacts.css"
+import axios from 'axios';
 import Header from './Header/Header';
 import Functionalities from './Functionalities/Functionalities';
 import editimage from "./../images/Edit.png";
@@ -12,21 +13,16 @@ import { useEffect } from 'react';
 const TotalContacts = () => {
 
     const [arr, setArr] = useState([])
+     let userid=JSON.parse(localStorage.getItem('userdetails'))._id
+    useEffect(()=>{
+        const fetchData=async()=>{
+        let result=await axios.get(`http://localhost:5500/allcontact/${userid}`)
+        setArr(result.data.contacts)
+        }
+        fetchData()
+    },[])
 
-    // useEffect( async ()=>{
-
-    //     try{
-    //         const response = await fetch("http://localhost:5500/allcontact")
-    //     } catch(e){
-    //         console.log(e)
-    //     }
-    // })
-
-    const array = [
-    { name: "aman", designation: "manager", company: "delhi", Industry: "it", Email: "ama@gmail.com", Phone_Number: "523665", Country: "india", Action: "action" },
-    { name: "aman", designation: "operation", company: "delhi", Industry: "it", Email: "ama@gmail.com", Phone_Number: "523665", Country: "india", Action: "action" },
-    { name: "aman", designation: "system", company: "delhi", Industry: "it", Email: "ama@gmail.com", Phone_Number: "523665", Country: "india", Action: "action" },
-    { name: "aman", designation: "jkhb", company: "delhi", Industry: "it", Email: "ama@gmail.com", Phone_Number: "523665", Country: "india", Action: "action" }]
+    
 
     return (
         <div className='totalContact'>
@@ -35,17 +31,17 @@ const TotalContacts = () => {
 
             {/* TABLE POPULATION OF CONTACTS  */}
 
-            <table class="table table-striped" selecttable>
+            <table className="table table-striped">
             <thead className='thead'>
                 <tr>
-                    <th>check</th>
+                    <th><input type="checkbox" /></th>
                     <th scope="col">Name</th>
                     <th scope="col">Designation</th>
                     <th scope="col">Company</th>
                     <th scope="col">Industry</th>
                     <th scope="col">Email</th>
                     <th scope="col">Phone Number</th>
-                    <th scope="col">Counrty</th>
+                    <th scope="col">Country</th>
                     <th scope="col">Action</th>    
                 </tr>
             </thead>
@@ -96,16 +92,16 @@ const TotalContacts = () => {
 
 
             <tbody>    
-                {array.map((data, key) => {
-                    return (<tr>
-                        <td></td>
+                {arr.map((data, key) => {
+                    return (<tr key={key}>
+                        <td><input type="check" /></td>
                         <td>{data.name}</td>
                         <td>{data.designation}</td>
                         <td>{data.company}</td>
-                        <td>{data.Industry}</td>
-                        <td>{data.Email}</td>
-                        <td>{data.Phone_Number}</td>
-                        <td>{data.Country}</td>
+                        <td>{data.industry}</td>
+                        <td>{data.email}</td>
+                        <td>{data.phonenumber}</td>
+                        <td>{data.category}</td>
                         <td>
                             <div className='tableaction'>
                                 <div className='table-row-edit'>

@@ -34,7 +34,7 @@ const TotalContacts = () => {
             <table className="table table-striped">
             <thead className='thead'>
                 <tr>
-                    <th>Check</th>
+                    <th><input type="checkbox" /></th>
                     <th scope="col">Name</th>
                     <th scope="col">Designation</th>
                     <th scope="col">Company</th>
@@ -94,7 +94,7 @@ const TotalContacts = () => {
             <tbody>    
                 {arr.map((data, key) => {
                     return (<tr key={key}>
-                        <td></td>
+                        <td><input type="check" /></td>
                         <td>{data.name}</td>
                         <td>{data.designation}</td>
                         <td>{data.company}</td>

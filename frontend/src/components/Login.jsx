@@ -23,6 +23,9 @@ const Login = (props) => {
             axios.post('http://localhost:5500/login', data)
             .then(result => {
                 console.log(result.data.message)
+                localStorage.setItem('token',JSON.stringify(result.data.message.token))
+                localStorage.setItem('userdetails',JSON.stringify(result.data.message.userdetails))
+                navigate('/main')
             }).catch((e) => {
                 console.log(e)
                 setMessage(e?.response?.data)
@@ -48,7 +51,7 @@ const Login = (props) => {
                             <img src={dontsPic} className="dotsImg1"  alt="dots" />
               
                         <div className="row d-flex align-items-center justify-content-center ">
-                            <div className="col-8 border d-flex align-items-center justify-content-center" style={{ "text-align": "center" }}>
+                            <div className="col-8 border d-flex align-items-center justify-content-center" style={{ textAlign: "center" }}>
                                 <div className="row">
 
                                     <div className="col">

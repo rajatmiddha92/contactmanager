@@ -8,16 +8,16 @@ import Signup from './components/Signup';
 // import DeleteSuccessfullyFile from './components/DeleteSuccessfullyFile';
 // import TotalContact from './components/TotalContact';
 // import Side from './components/Side';
-import Main from './components/Main/Main';
+import Main from './components/Main/Main'
 import ImportFile from './components/ImportFile';
 const App=()=> {
  return(
   <>
   <BrowserRouter>
   <Routes>
-    <Route path='/' element={<Main />} />
+    <Route path='/' element={<Login/>} />
     <Route path='/signup' element={<Signup/>}/>
-    <Route path='/login' element={<Login/>}/>
+    <Route path='/main' element={<Main/>}/>
   </Routes>
   </BrowserRouter>
   </>

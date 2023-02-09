@@ -31,7 +31,12 @@ useEffect(() => {
         .then(response => {
           console.log(response.data);
           props.setfile(false)
-          navigate('/main',{state:1})
+          props.importCompletStatus(true)
+          setFile(null)
+          setTimeout(()=>{
+            props.importCompletStatus(false)
+          }, 4000)
+          
         })
         .catch(error => {
           console.error(error);

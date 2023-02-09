@@ -8,8 +8,7 @@ router.get("/allcontact/:userID",  async (req, res)=>{
     console.log(req.params.userID)
     try{
         const allcontacts = await contact.find({ userID: req.params.userID }).populate(
-            "userID",
-            "-password"
+            "userID"
         )
         console.log("allcontacts"+ allcontacts)
         return res.status(200).json({

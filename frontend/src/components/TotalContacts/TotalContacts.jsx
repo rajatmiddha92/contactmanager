@@ -9,6 +9,7 @@ import { useEffect } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { red, blue } from '@mui/material/colors';
 import EditIcon from '@mui/icons-material/Edit';
+import DeleteContactComfirmation from '../DeleteContactComfirmation';
 // import sort from "./../images/sorting.png"
 // import columnDevide from "./../images/columnDevide.png"
 
@@ -17,6 +18,8 @@ const TotalContacts = (props) => {
 
     const [arr, setArr] = useState([])
     const [checkedIds, setCheckedIds] = useState([]);
+    const [deletefile,setDeletefile]=useState(false)
+
     const userId = JSON.parse(localStorage.getItem("userdetails"))._id
     const token = JSON.parse(localStorage.getItem("token"))
     useEffect(()=>{
@@ -41,6 +44,13 @@ const TotalContacts = (props) => {
       setCheckedIds(checkedIds.filter((checkedId) => checkedId !== id));
     }
   };
+ 
+  const ActionButtonDelete = (id)=>{
+    setCheckedIds([...checkedIds, id]) 
+    console.log(id);
+    setDeletefile(true)
+  }
+
     return (
         <div className='totalContact'>
             <Header />
@@ -79,10 +89,8 @@ const TotalContacts = (props) => {
                                 <div className='table-row-edit'>
                                    <EditIcon sx={{color:blue[400]}}/>
                                 </div>
-                                <div>
-                                    
-                                    <DeleteIcon sx={{color:red[400]}}/>
-                                   
+                                <div>                
+                                    <DeleteIcon onClick={()=>ActionButtonDelete(data._id)}  sx={{color:red[400]}}/>                                  
                                 </div>
                             </div>
                         </td>
@@ -90,6 +98,10 @@ const TotalContacts = (props) => {
                 })}
             </tbody>
             </table>
+
+            <div className="deletefile">
+                <DeleteContactComfirmation trigger3={deletefile} hide={setDeletefile} arr={checkedIds} checkids={setCheckedIds} rend={fetchData}/>  
+            </div>
            
         </div>
         

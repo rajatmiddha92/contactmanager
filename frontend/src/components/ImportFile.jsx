@@ -29,7 +29,7 @@ useEffect(() => {
         }
       })
         .then(response => {
-          console.log(response.data);
+          props.reFetch()
           props.setfile(false)
           props.importCompletStatus(true)
           setFile(null)

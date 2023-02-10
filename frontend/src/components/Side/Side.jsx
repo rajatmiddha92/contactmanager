@@ -19,20 +19,21 @@ const Side = ()=> {
                 <h1 className='logo' >LOGO</h1>
                 <div className='side-dashboard'>
                     <DashboardIcon />
-                    Dashboard
+                    <span className='dash'>Dashboard</span>
                 </div>
                 <div className='side-totalContact'>
                     <p className='total-contact'>
-                        <ContactsIcon />
-                        <span style={{color: "white"}}>Total Contacts</span>
+                        <ContactsIcon style={{color:'white'}} />
+                        <span className='total'>Total Contacts</span>
+                        <span className='line'></span>
                     </p>
                 </div>
             </div>
             <div className='logout-div'>
-                <h6 className='logout'>
-                    <LogoutIcon />
-                    <button style={{background:"none"}} onClick={handlelogout}>Log out</button>
-                </h6>
+                
+                    <LogoutIcon style={{marginLeft:'2.313rem'}} />
+                    <span className='logout' onClick={handlelogout}>Log out</span>
+                   
             </div>
         </div>
     );

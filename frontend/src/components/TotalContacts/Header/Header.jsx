@@ -10,7 +10,10 @@ function Header(props) {
     
     const userId = JSON.parse(localStorage.getItem("userdetails"))._id
     const token = JSON.parse(localStorage.getItem("token"))
-
+    const name=JSON.parse(localStorage.getItem("userdetails")).email.split('@')[0]
+    useEffect(()=>{
+        searchedEmail()
+    },[search])
 
     const searchedEmail = async()=>{
         try{
@@ -38,16 +41,16 @@ function Header(props) {
                 <h4>Total Contacts</h4>
             </div>
             <div className='search-bar'>
-                <button style={{backgroundColor:"#F2F2F2"}} onClick={searchedEmail}><SearchIcon /></button>
-                <input className='search-by-email' type="email"  value={search} placeholder="Search by Email" onChange={(e)=>setSearch(e.target.value)} /> 
+                
+                <input className='search-by-email' type="text"  value={search} placeholder="Search by Email Id....." onChange={(e)=>setSearch(e.target.value)} /> 
             </div>
             <div className='header-user-admin'>
                 <div>
-                    <AccountCircleIcon />
+                    <AccountCircleIcon  sx={{ fontSize: 40 }}  />
                 </div>
                 <div className='header-user-admin-name'>
-                    <p className='name'>Ram Darvin</p>
-                    <p>Super Admin</p>
+                    <p className='name'>{name}</p>
+                    <p className='admin'>Super Admin</p>
                 </div>
             </div>
 

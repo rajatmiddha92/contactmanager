@@ -1,43 +1,60 @@
-.side{
-width: 15vw;
-height: 100vh;
-left: 0px;
-top: 0px;
-background: #CEF3FF;
-display:flex;
-flex-direction: column;
-justify-content: space-between;
+.side {
+  width: 15vw;
+  height: 100vh;
+  left: 0px;
+  top: 0px;
+  background: #cef3ff;
+  position: relative;
 }
 
-.side-upper{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+.side-upper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
-.logo{
-color:#0884FF;
-margin: 1rem;
-}
-
-.side-dashboard{
-    margin: 1rem;
+.logo {
+  color: #0884ff;
+  margin-top: 1.75rem;
+  margin-left: 1.5rem;
 }
 
-.side-dashboard > h4{
-    color: #181818
+.side-dashboard {
+  margin-left: 2.688rem;
+  margin-top: 3.25rem;
+  margin-bottom: 2.188rem;
 }
-
-.side-totalContact{
-    background: #2DA5FC;
-    border-radius: 0.5em;
-    margin: 1rem;
-    padding: 0.1rem;
+.total {
+  margin-left: 0.5rem;
+  color: #ffffff;
 }
-
-.total-contact{
-    color: #ddd;
+.line {
+  border: 1px solid #ffffff;
+  margin-left: 0.8rem;
+  padding-bottom: 0.3rem;
 }
-
+.dash {
+  margin-left: 0.688rem;
+}
+.side-dashboard > h4 {
+  color: #181818;
+}
 .logout{
-    margin: 2.5rem;
+    margin-left: 0.6rem;
+    font-size: 1.125rem;
+    text-decoration: underline;
+    text-decoration-color: #0884ff;
+}
+
+.side-totalContact {
+  background: #2da5fc;
+  border-radius: 0.5em;
+  margin:1rem;
+}
+
+.total-contact {
+  color: #ddd;
+}
+.logout-div{
+    position: absolute;
+    bottom: 5%;
 }

@@ -11,7 +11,9 @@ router.use(express.urlencoded())
 
 //post method
 router.post("/login", async(req, res)=>{
+    
     try{
+        
         const {email, password} = req.body;
         const data = await userModel.findOne({email:email})
         if(!data){
@@ -21,22 +23,23 @@ router.post("/login", async(req, res)=>{
             })
         }
         else{
+            console.log(req.body)
             bcrypt.compare(password, data.password, (err, result)=>{
-                if(err){
-                    res.status(403).json({
+                console.log(result, "from")
+                if(!result){
+                   return res.status(403).json({
                         status:"Failed",
                         message:"Invalid User Password"
                     })   
                 }
                 else{
-                    console.log(data._id)
                     const token=jwt.sign({
                         exp: Math.floor(Date.now() / 1000) + (60 * 60* 60 *60),
                         data: data._id
                       }, secret);
                       
                     const userdetails = {...data._doc, password: undefined}
-                    res.status(200).json({
+                    return res.status(200).json({
                         status:"Success",
                         message: {token, userdetails}
                     })

@@ -49,7 +49,7 @@ const handledelete=async()=>{
 
                 </div>
                 <div className="importFile">
-                    <ImportFile trigger={importFile} setfile={setImportFile} importCompletStatus={setImportComplet}  > 
+                    <ImportFile trigger={importFile} setfile={setImportFile} importCompletStatus={setImportComplet} reFetch = {props.rend} > 
                     </ImportFile>
                 </div>
                 <div className="importFile">

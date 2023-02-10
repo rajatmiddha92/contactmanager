@@ -14,6 +14,26 @@ import EditIcon from '@mui/icons-material/Edit';
 import Tooltip from '@mui/material/Tooltip';
 import DeleteContactComfirmation from '../DeleteContactComfirmation';
 
+
+//    TOOL-TIP IMPLEMENTATION 
+
+import { styled } from '@mui/material/styles';
+import { tooltipClasses } from '@mui/material/Tooltip';
+
+const LightTooltip = styled(({ className, ...props }) => (
+    <Tooltip {...props} classes={{ popper: className }} arrow />
+))(({ theme }) => ({
+    [`& .${tooltipClasses.tooltip}`]: {
+        backgroundColor: theme.palette.common.white,
+        boxShadow: theme.shadows[1],
+        fontSize: 22,
+        fontWeight: 600,
+        color: "#2DA5FC"
+    },
+    arrow: { color: red },
+}));
+
+
 const TotalContacts = (props) => {
 
     const [arr, setArr] = useState([])
@@ -99,9 +119,14 @@ const TotalContacts = (props) => {
                         <td>{data.designation}</td>
                         <td>{data.company}</td>
                         <td>{data.industry}</td>
-                        <Tooltip  placement="bottom" title={data.email} arrow>
-                        <td className='email'>{data.email}</td>
-                        </Tooltip>
+                        <LightTooltip  
+                            placement="bottom" 
+                            title={data.email} 
+                            arrow  
+                            sx={{'& .MuiTooltip-arrow': {color: "white"}}}
+                        >
+                            <td className='email'>{data.email}</td>
+                        </ LightTooltip>
                         <td>{data.phonenumber}</td>
                         <td>{data.category}</td>
                         <td>
@@ -129,3 +154,4 @@ const TotalContacts = (props) => {
 }
 
 export default TotalContacts;
+

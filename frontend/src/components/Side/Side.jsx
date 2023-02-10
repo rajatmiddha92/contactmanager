@@ -31,7 +31,7 @@ const Side = ()=> {
             <div className='logout-div'>
                 <h6 className='logout'>
                     <LogoutIcon />
-                    <button onClick={handlelogout}>Log out</button>
+                    <button style={{background:"none"}} onClick={handlelogout}>Log out</button>
                 </h6>
             </div>
         </div>

@@ -9,8 +9,6 @@ import { useEffect } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { red, blue } from '@mui/material/colors';
 import EditIcon from '@mui/icons-material/Edit';
-// import sort from "./../images/sorting.png"
-// import columnDevide from "./../images/columnDevide.png"
 
 
 const TotalContacts = (props) => {
@@ -65,13 +63,13 @@ const TotalContacts = (props) => {
             <tbody>    
                 {arr.map((data, key) => {
                     return (<tr key={key}>
-                        <td><input type="checkbox"  id={data._id}
+                        <td><input type="checkbox" id={data._id}
                          onChange={handleCheckboxChange}/></td>
                         <td>{data.name}</td>
                         <td>{data.designation}</td>
                         <td>{data.company}</td>
                         <td>{data.industry}</td>
-                        <td>{data.email}</td>
+                        <td title={data.email}>{data.email}</td>
                         <td>{data.phonenumber}</td>
                         <td>{data.category}</td>
                         <td>

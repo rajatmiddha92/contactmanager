@@ -18,7 +18,7 @@ const TotalContacts = (props) => {
     const [arr, setArr] = useState([])
     const [checkedIds, setCheckedIds] = useState([]);
     const [deletefile,setDeletefile]=useState(false)
-
+    
     const userId = JSON.parse(localStorage.getItem("userdetails"))._id
     const token = JSON.parse(localStorage.getItem("token"))
     useEffect(()=>{
@@ -50,9 +50,10 @@ const TotalContacts = (props) => {
     setDeletefile(true)
   }
 
+  
     return (
         <div className='totalContact'>
-            <Header />
+            <Header setarr = {setArr} />
             <Functionalities ids={checkedIds} checkids={setCheckedIds} rend={fetchData}/>
 
             {/* TABLE POPULATION OF CONTACTS  */}

@@ -11,10 +11,7 @@ function Header(props) {
     const userId = JSON.parse(localStorage.getItem("userdetails"))._id
     const token = JSON.parse(localStorage.getItem("token"))
 
-    useEffect(()=>{
-        searchedEmail()
-    },[])
-    
+
     const searchedEmail = async()=>{
         try{
             const response = await fetch(`http://localhost:5500/allcontacts/${userId}/${search}` ,{
@@ -25,11 +22,7 @@ function Header(props) {
             const result = await response.json()
             if(!result.error){
                 console.log(result)
-                setEmailList(result.data.contacts)
-
-                props.searchedData(emailList)
-
-
+                props.setarr(result.contacts)
             }else{
                 console.log(result.error)
             }
@@ -46,7 +39,7 @@ function Header(props) {
             </div>
             <div className='search-bar'>
                 <button style={{backgroundColor:"#F2F2F2"}} onClick={searchedEmail}><SearchIcon /></button>
-                <input className='search-by-email' type="email"  value={search} placeholder="search by email" onChange={(e)=>setSearch(e.target.value)} /> 
+                <input className='search-by-email' type="email"  value={search} placeholder="Search by Email" onChange={(e)=>setSearch(e.target.value)} /> 
             </div>
             <div className='header-user-admin'>
                 <div>

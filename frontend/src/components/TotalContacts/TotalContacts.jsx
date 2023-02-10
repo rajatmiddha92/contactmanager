@@ -11,6 +11,7 @@ import { red, blue } from '@mui/material/colors';
 import EditIcon from '@mui/icons-material/Edit';
 // import sort from "./../images/sorting.png"
 // import columnDevide from "./../images/columnDevide.png"
+import Tooltip from '@mui/material/Tooltip';
 import DeleteContactComfirmation from '../DeleteContactComfirmation';
 
 const TotalContacts = (props) => {
@@ -18,6 +19,7 @@ const TotalContacts = (props) => {
     const [arr, setArr] = useState([])
     const [checkedIds, setCheckedIds] = useState([]);
     const [deletefile,setDeletefile]=useState(false)
+    const [all,setall]=useState(false)
     
     const userId = JSON.parse(localStorage.getItem("userdetails"))._id
     const token = JSON.parse(localStorage.getItem("token"))
@@ -43,6 +45,18 @@ const TotalContacts = (props) => {
       setCheckedIds(checkedIds.filter((checkedId) => checkedId !== id));
     }
   };
+
+  const handleall=(event)=>{
+    let user=[]
+    if(event.target.checked){
+        
+       user=arr.map((data)=>{
+          return data._id
+       })
+    }
+    setCheckedIds(user)
+  }
+  console.log(checkedIds)
  
   const ActionButtonDelete = (id)=>{
     setCheckedIds([...checkedIds, id]) 
@@ -53,15 +67,19 @@ const TotalContacts = (props) => {
   
     return (
         <div className='totalContact'>
-            <Header setarr = {setArr} />
+        <div>
+             <Header setarr = {setArr} />
             <Functionalities ids={checkedIds} checkids={setCheckedIds} rend={fetchData}/>
+        </div>
+           
 
             {/* TABLE POPULATION OF CONTACTS  */}
 
-            <table className="table table-striped">
+            <table  className="table table-striped">
             <thead className='thead'>
+           
                 <tr>
-                    <th><input type="checkbox" /></th>
+                    <th scope='col'><input value='something' type="checkbox" onChange={handleall}/></th>
                     <th scope="col">Name</th>
                     <th scope="col">Designation</th>
                     <th scope="col">Company</th>
@@ -72,7 +90,7 @@ const TotalContacts = (props) => {
                     <th scope="col">Action</th>    
                 </tr>
             </thead>
-            <tbody>    
+            <tbody className='tbody'>    
                 {arr.map((data, key) => {
                     return (<tr key={key}>
                         <td><input type="checkbox" id={data._id}
@@ -81,7 +99,9 @@ const TotalContacts = (props) => {
                         <td>{data.designation}</td>
                         <td>{data.company}</td>
                         <td>{data.industry}</td>
-                        <td title={data.email}>{data.email}</td>
+                        <Tooltip  placement="bottom" title={data.email} arrow>
+                        <td className='email'>{data.email}</td>
+                        </Tooltip>
                         <td>{data.phonenumber}</td>
                         <td>{data.category}</td>
                         <td>
@@ -89,7 +109,7 @@ const TotalContacts = (props) => {
                                 <div className='table-row-edit'>
                                    <EditIcon sx={{color:blue[400]}}/>
                                 </div>
-                                <div>                
+                                <div  >                 
                                     <DeleteIcon onClick={()=>ActionButtonDelete(data._id)}  sx={{color:red[400]}}/>                                  
                                 </div>
                             </div>
@@ -98,10 +118,10 @@ const TotalContacts = (props) => {
                 })}
             </tbody>
             </table>
-
-            <div className="deletefile">
+            <div className="deletefile popup">
                 <DeleteContactComfirmation trigger3={deletefile} hide={setDeletefile} arr={checkedIds} checkids={setCheckedIds} rend={fetchData}/>  
             </div>
+           
            
         </div>
         

@@ -43,6 +43,7 @@
     font-size: 1.125rem;
     text-decoration: underline;
     text-decoration-color: #0884ff;
+    cursor: pointer;
 }
 
 .side-totalContact {

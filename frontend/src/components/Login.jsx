@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import dontsPic from './images/Group 100.png'
@@ -16,6 +16,14 @@ const Login = (props) => {
     const [switchIcon, setSwitchIcon] = useState(true)
     const [valid, setValid] = useState(false)
     const [message, setMessage] = useState({status:"", message:""})
+    useEffect(()=>{
+        const getUserDetails = JSON.parse(localStorage.getItem("token"))
+    if(getUserDetails){
+        navigate("/main")
+    }
+    },[])
+    
+    
     const handleSubmit = async (e) => {
         e.preventDefault(e)
         if(data.password.length>5){

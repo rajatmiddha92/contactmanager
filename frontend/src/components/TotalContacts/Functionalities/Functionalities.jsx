@@ -11,11 +11,13 @@ import ImportComplete from "../../ImportComplete";
 import DeleteContactComfirmation from "../../DeleteContactComfirmation";
 import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
+import DeleteSuccessfullyFile from "../../DeleteSuccessfullyFile";
 
 const Functionalities = (props) => {
   const [importFile, setImportFile] = useState(false);
   const [importComplete, setImportComplet] = useState(false);
   const [deletefile, setDeletefile] = useState(false);
+  const [deleteSuccess, setDeleteSuccess] = useState(false)
 
   const handledelete = async () => {
     let { ids } = props;
@@ -82,8 +84,13 @@ const Functionalities = (props) => {
             checkids={props.checkids}
             rend={props.rend}
             hide={setDeletefile}
+            setDeleteSuccessMessage = {setDeleteSuccess}
           />
         </div>
+        <div className="deletefile">
+        <DeleteSuccessfullyFile trigger4={deleteSuccess}/>
+        </div >
+        
       </div>
     </>
   );

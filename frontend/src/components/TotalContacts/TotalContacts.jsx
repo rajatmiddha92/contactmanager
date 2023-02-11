@@ -148,7 +148,7 @@ const TotalContacts = (props) => {
                                 sx={{ '& .MuiTooltip-arrow': { color: "white" } }}
                             >
                                 <td className='email'>{data.email}</td>
-                            </ LightTooltip>
+                            </LightTooltip>
                             <td>{data.phonenumber}</td>
                             <td>{data.category}</td>
                             <td>

@@ -12,6 +12,7 @@ const DeleteContactComfirmation=(props)=> {
     }
 
     const handledelete = async () => {
+        console.log(props)
   const userid = JSON.parse(localStorage.getItem("userdetails"))._id;
   await axios.delete(`http://localhost:5500/deletecontact/${userid}`, {
     data: { ids: props.arr },

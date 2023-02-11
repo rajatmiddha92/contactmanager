@@ -87,7 +87,7 @@ const Functionalities = (props) => {
         </div>
         <div className="deletefile">
         <DeleteSuccessfullyFile trigger4={deleteSuccess}/>
-        </div >
+        </div>
         
       </div>
     </>

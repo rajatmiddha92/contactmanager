@@ -2,11 +2,9 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import "./Header.css"
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import SearchIcon from '@mui/icons-material/Search';
 
 function Header(props) {
     const [search, setSearch] = useState("")
-    const [emailList, setEmailList] = useState("")
     
     const userId = JSON.parse(localStorage.getItem("userdetails"))._id
     const token = JSON.parse(localStorage.getItem("token"))
@@ -24,7 +22,6 @@ function Header(props) {
             })
             const result = await response.json()
             if(!result.error){
-                console.log(result)
                 props.setarr(result.contacts)
             }else{
                 console.log(result.error)

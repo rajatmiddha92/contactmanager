@@ -7,8 +7,8 @@ import './login.css';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import EmailIcon from '@mui/icons-material/Email';
-import PhonelinkLockIcon from '@mui/icons-material/PhonelinkLock';
 import KeyIcon from '@mui/icons-material/Key';
+
 const Login = (props) => {
     const navigate = useNavigate()
     const [data, setData] = useState({ email: "", password: "" })
@@ -27,15 +27,12 @@ const Login = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault(e)
         if(data.password.length>5){
-            console.log("i am here")
             axios.post('http://localhost:5500/login', data)
             .then(result => {
-                console.log(result.data.message)
                 localStorage.setItem('token',JSON.stringify(result.data.message.token))
                 localStorage.setItem('userdetails',JSON.stringify(result.data.message.userdetails))
                 navigate('/main')
             }).catch((e) => {
-                console.log(e)
                 setMessage(e?.response?.data)
                 setValid(true)
             })

@@ -5,7 +5,6 @@ const users = require("../models/user")
 const checkAuth = require("./../Authorization/auth")
 
 router.get("/allcontacts/:userID/:search", checkAuth, async (req, res) => {
-    console.log(req.params.userID)
     let search = `^${req.params.search}`
     try {
         const searchedUser = await contact.find({
@@ -15,7 +14,6 @@ router.get("/allcontacts/:userID/:search", checkAuth, async (req, res) => {
             .populate(
                 "userID",
             )
-        // console.log("searchedUser" + searchedUser)
         return res.status(200).json({
             contacts: searchedUser
         })

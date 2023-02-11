@@ -1,15 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios';
-// import {Checkbox, Grid, TextField, FormControlLabel, Paper, Button} from '@mui/material';
 import './login.css';
 import dontsPic from'./images/Group 100.png'
 import { Link } from 'react-router-dom';
 import EmailIcon from '@mui/icons-material/Email';
-import PhonelinkLockIcon from '@mui/icons-material/PhonelinkLock';
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import EnhancedEncryptionIcon from '@mui/icons-material/EnhancedEncryption';
 import LockIcon from '@mui/icons-material/Lock';
+
+
 const Signup =(props)=> {
   const navigate = useNavigate()
   const [data, setData] = useState({email:"",password:"", confirmPassword:""}) 
@@ -34,7 +33,6 @@ if(getUserDetails){
             .then(result=>{
                navigate('/')
             }).catch((e)=>{
-                console.log(e.response.data)
                 setMessage(e?.response?.data)
                 setValid(true)
             }) 

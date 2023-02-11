@@ -23,9 +23,7 @@ router.post("/login", async(req, res)=>{
             })
         }
         else{
-            console.log(req.body)
             bcrypt.compare(password, data.password, (err, result)=>{
-                console.log(result, "from")
                 if(!result){
                    return res.status(403).json({
                         status:"Failed",

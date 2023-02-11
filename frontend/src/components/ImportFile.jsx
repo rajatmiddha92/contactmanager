@@ -35,7 +35,7 @@ useEffect(() => {
           setFile(null)
           setTimeout(()=>{
             props.importCompletStatus(false)
-          }, 4000)
+          }, 3000)
           
         })
         .catch(error => {

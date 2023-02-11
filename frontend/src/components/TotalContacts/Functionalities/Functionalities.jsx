@@ -3,7 +3,6 @@ import "./Functionalities.css";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import FilterListIcon from "@mui/icons-material/FilterList";
-import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import ImportExportIcon from "@mui/icons-material/ImportExport";
 import exportFile from "./../../images/exportFile.png";
 import ImportFile from "../../ImportFile";
@@ -21,7 +20,6 @@ const Functionalities = (props) => {
 
   const handledelete = async () => {
     let { ids } = props;
-    console.log(ids);
     setDeletefile(true);
   };
   return (

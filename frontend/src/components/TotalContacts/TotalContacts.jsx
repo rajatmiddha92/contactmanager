@@ -3,14 +3,10 @@ import "./TotalContacts.css"
 import axios from 'axios';
 import Header from './Header/Header';
 import Functionalities from './Functionalities/Functionalities';
-import editimage from "./../images/Edit.png";
-import deleteimage from "./../images/delete.png";
 import { useEffect } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { red, blue } from '@mui/material/colors';
 import EditIcon from '@mui/icons-material/Edit';
-// import sort from "./../images/sorting.png"
-// import columnDevide from "./../images/columnDevide.png"
 import Tooltip from '@mui/material/Tooltip';
 import DeleteContactComfirmation from '../DeleteContactComfirmation';
 
@@ -68,38 +64,13 @@ const TotalContacts = (props) => {
                 "Authorization": token
             }
         })
-        console.log(result.data.contacts);
         setArr(result.data.contacts)
     }
 
-    //     const handleCheckboxChange = (event) => {
-    //     const { target } = event;
-    //     const { id } = target;
-    //     if (target.checked) {
-    //       setCheckedIds([...checkedIds, id]);
-    //     } else {
-    //       setCheckedIds(checkedIds.filter((checkedId) => checkedId !== id));
-    //     }
-    //   };
-
-    //   const handleall=(event)=>{
-    //     let user=[]
-    //     if(event.target.checked){
-
-    //        user=arr.map((data)=>{
-    //           return data._id
-    //        })
-    //     }
-    //     setCheckedIds(user)
-    //   }
-    //   console.log(checkedIds)
-
     const ActionButtonDelete = (id) => {
         setCheckedIds([...checkedIds, id])
-        console.log(id);
         setDeletefile(true)
     }
-
 
     return (
         <div className='totalContact'>
@@ -112,15 +83,10 @@ const TotalContacts = (props) => {
 
             </div>
 
-
-            {/* TABLE POPULATION OF CONTACTS  */}
-
             <table className="table table-striped">
                 <thead className='thead'>
 
                     <tr>
-                        {/* <th scope='col'><input value='something' type="checkbox" onChange={handleall}/></th> */}
-
                         <th scope='col'><input type="checkbox"
 
                             onChange={(e) => {
@@ -150,11 +116,6 @@ const TotalContacts = (props) => {
                     </tr>
                 </thead>
                 <tbody className='tbody'>
-
-                    {/* {arr.map((data, key) => {
-                    return (<tr key={key}>
-                        <td><input type="checkbox" id={data._id}
-                         onChange={handleCheckboxChange}/></td> */}
 
                     {arr.map((data, key) => {
                         return (<tr key={data._id}>

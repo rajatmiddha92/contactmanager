@@ -29,7 +29,7 @@ if(getUserDetails){
             setValid(true)
         }
         else{
-            axios.post('http://localhost:5500/register', data)
+            axios.post('https://contactmanager-webapp.onrender.com/register', data)
             .then(result=>{
                navigate('/')
             }).catch((e)=>{

@@ -8,7 +8,7 @@ const logInRoute = require('./routes/Login')
 const allcontact = require("./routes/getAllContacts")
 const searchByEmail = require("./routes/searchByEmail")
 const app = express();
-let port = 5500;
+let port =process.env.PORT ||  5500;
 conn();
 
 // const fileUploader =  require("express-fileupload")
@@ -21,5 +21,9 @@ app.use(addContact)
 app.use(deleteContact)
 app.use(allcontact)
 app.use(searchByEmail)
+
+app.use('/',(req,res)=>{
+    res.send('working fine')
+})
 
 app.listen(port, () => console.log(`app running on port ${port}`));

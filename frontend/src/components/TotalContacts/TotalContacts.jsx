@@ -75,11 +75,11 @@ const TotalContacts = (props) => {
     return (
         <div className='totalContact'>
         <div className="popup">
-        <DeleteContactComfirmation trigger3={deletefile} hide={setDeletefile} arr={checkedIds} checkids={setCheckedIds} rend={fetchData} />
+        <DeleteContactComfirmation something={setall} trigger3={deletefile} hide={setDeletefile} arr={checkedIds} checkids={setCheckedIds} rend={fetchData}/>
     </div>
             <div>
-                <Header setarr={setArr} />
-                <Functionalities ids={checkedIds} checkids={setCheckedIds} rend={fetchData} />
+                <Header setarr={setArr}/>
+                <Functionalities ids={checkedIds} checkids={setCheckedIds} rend={fetchData}/>
 
             </div>
 
@@ -104,7 +104,7 @@ const TotalContacts = (props) => {
                                 setCheckedIds(user)
 
                             }
-                        } /></th>
+                        }/></th>
                         <th scope="col">Name</th>
                         <th scope="col">Designation</th>
                         <th scope="col">Company</th>

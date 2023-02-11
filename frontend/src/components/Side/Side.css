@@ -39,11 +39,7 @@
   color: #181818;
 }
 .logout{
-    margin-left: 0.6rem;
-    font-size: 1.125rem;
-    text-decoration: underline;
-    text-decoration-color: #0884ff;
-    cursor: pointer;
+    
 }
 
 .side-totalContact {
@@ -56,6 +52,23 @@
   color: #ddd;
 }
 .logout-div{
+    width: 100%;
     position: absolute;
     bottom: 5%;
+    cursor: pointer;
+    border-top: 2px solid rgb(255, 255, 255);
+    padding:auto;
+    text-align: center;
+}
+.logout-div:hover{
+  border-top: 2px solid aquamarine;
+}
+.log-out-cont{
+  min-width: 10px;
+  margin: auto;
+  margin-top:10%;
+}
+.logouticon{
+  margin: 10px;
+  margin-right: 1px;
 }

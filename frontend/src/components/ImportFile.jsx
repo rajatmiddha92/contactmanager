@@ -22,7 +22,7 @@ useEffect(() => {
     formData.append('file', file);
     formData.append('userId', userId);
     try {
-      axios.post(`http://localhost:5500/addcontact`, formData, {
+      axios.post(`https://contactmanager-webapp.onrender.com/addcontact`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           "Authorization":token

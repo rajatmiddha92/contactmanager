@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios';
 // import {Checkbox, Grid, TextField, FormControlLabel, Paper, Button} from '@mui/material';
@@ -16,6 +16,12 @@ const Signup =(props)=> {
   const [confirmPassword, setCofirmPassword] = useState("")
   const [valid, setValid] = useState(false)
   const [message, setMessage] = useState({status:"", message:""})
+  useEffect(()=>{
+    const getUserDetails = JSON.parse(localStorage.getItem("token"))
+if(getUserDetails){
+    navigate("/main")
+}
+},[])
   const handleSubmit=async(e)=>{
     e.preventDefault()
     if(confirmPassword=== data.password){

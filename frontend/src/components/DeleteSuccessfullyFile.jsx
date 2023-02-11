@@ -3,7 +3,7 @@ import {blue } from '@mui/material/colors';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 const DeleteSuccessfullyFile=(props)=> {
-    return (
+    return (props.trigger4)? (
         <>
         <div className='container-2'>
         <section className='box-2'>
@@ -12,7 +12,7 @@ const DeleteSuccessfullyFile=(props)=> {
         </section>
       </div>
         </>
-    );
+    ):""
 }
 
 export default DeleteSuccessfullyFile;

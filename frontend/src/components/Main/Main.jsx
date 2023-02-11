@@ -11,7 +11,7 @@ const Main = ()=>{
     const location=useLocation()
     const [update,setUpdate]=useState(0)
     const loggedin=JSON.parse(localStorage.getItem('userdetails'))
-    console.log(location)
+    
     return <>
     <div className="main">
         <div className="sidebar">

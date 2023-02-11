@@ -24,6 +24,10 @@ const DeleteContactComfirmation=(props)=> {
   props.hide(false);
   props.rend()
   props.checkids([])
+  props.setDeleteSuccessMessage(true)
+  setTimeout(()=>{
+    props.setDeleteSuccessMessage(false)
+  },3000)
 };
 
 

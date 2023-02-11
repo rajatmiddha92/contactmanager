@@ -5,12 +5,12 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import ContactsIcon from '@mui/icons-material/Contacts';
 import { useNavigate } from 'react-router-dom';
 
-const Side = ()=> {
-   const navigate=useNavigate()
-    const handlelogout=()=>{
-         localStorage.removeItem('userdetails')
-         localStorage.removeItem('token')
-         navigate('/')
+const Side = () => {
+    const navigate = useNavigate()
+    const handlelogout = () => {
+        localStorage.removeItem('userdetails')
+        localStorage.removeItem('token')
+        navigate('/')
     }
 
     return (
@@ -23,17 +23,18 @@ const Side = ()=> {
                 </div>
                 <div className='side-totalContact'>
                     <p className='total-contact'>
-                        <ContactsIcon style={{color:'white'}} />
+                        <ContactsIcon style={{ color: 'white' }} />
                         <span className='total'>Total Contacts</span>
                         <span className='line'></span>
                     </p>
                 </div>
             </div>
-            <div className='logout-div'>
+            <div className='logout-div'  >
+                <div onClick={handlelogout} className="log-out-cont">
+                    <LogoutIcon className='logouticon'/>
+                    <span className='logout' >Log out</span>
+                </div>
                 
-                    <LogoutIcon style={{marginLeft:'2.313rem'}} />
-                    <span className='logout' onClick={handlelogout}>Log out</span>
-                   
             </div>
         </div>
     );

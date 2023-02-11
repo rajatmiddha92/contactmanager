@@ -48,10 +48,10 @@ const Functionalities = (props) => {
             </Button>
           </div>
           <div className="import">
-          <Button style={{color:'black'}} >
-          <ImportExportIcon style={{color:'black'}}  onClick={() => {
+          <Button style={{color:'black'}}  onClick={() => {
                 setImportFile(true);
-              }} >Import</ImportExportIcon>
+             }}>
+          <ImportExportIcon style={{color:'black'}}  >Import</ImportExportIcon>
           Import</Button>
               
             

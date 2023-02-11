@@ -1,6 +1,6 @@
 const mongoose=require('mongoose')
 mongoose.set('strictQuery', false)
-const uri = `mongodb://localhost/contactmanager`
+const uri = `mongodb+srv://rajat:contactmanager@cluster0.9nvdrqd.mongodb.net/?retryWrites=true&w=majority`
 async function getConnection() {
     await mongoose.connect(uri, (err)=>{
         if(err){

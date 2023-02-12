@@ -31,6 +31,7 @@ const Login = (props) => {
             .then(result => {
                 localStorage.setItem('token',JSON.stringify(result.data.message.token))
                 localStorage.setItem('userdetails',JSON.stringify(result.data.message.userdetails))
+                setData({email:"", password:""})
                 navigate('/main')
             }).catch((e) => {
                 setMessage(e?.response?.data)
@@ -67,12 +68,12 @@ const Login = (props) => {
                                                 <div className="col-lg-10">
                                                     <form onSubmit={handleSubmit}>
                                                         <div className='col-sm-12 inputBox'>
-                                                        <input className='form-control m-2 px-5' type='email' name="email" placeholder='User Id' required onChange={(e) => setData({ ...data, email: e.target.value })} />
+                                                        <input className='form-control m-2 px-5' type='email' name="email" placeholder='User Id' required value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })} />
                                                         <EmailIcon className='icons'/>
                                                         </div>
                                                        
                                                         <div className='col-sm-12 inputBox'>
-                                                        <input className='form-control m-2 px-5 ' type={visibility} name='password' placeholder='Password' required onChange={(e) => setData({ ...data, password: e.target.value })} />
+                                                        <input className='form-control m-2 px-5 ' type={visibility} name='password' placeholder='Password' value={data.password} required onChange={(e) => setData({ ...data, password: e.target.value })} />
                                                         <KeyIcon className='icons'/>
                                                         {switchIcon?<VisibilityIcon onClick={()=>{setVisibility("text"); setSwitchIcon(!switchIcon)}} className="visibility"/>:<VisibilityOffIcon onClick={()=>{setVisibility("password");setSwitchIcon(!switchIcon)}} className="visibility"/>}
                                                         </div>

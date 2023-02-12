@@ -31,6 +31,8 @@ if(getUserDetails){
         else{
             axios.post('https://contactmanager-webapp.onrender.com/register', data)
             .then(result=>{
+                setData({email:"", password:""})
+                setCofirmPassword("")
                navigate('/')
             }).catch((e)=>{
                 setMessage(e?.response?.data)
@@ -68,15 +70,15 @@ if(getUserDetails){
                                             <div className="col-lg-10">
                                                 <form onSubmit={handleSubmit}>
                                                     <div className="col-sm-12 inputBox">
-                                                    <input className='form-control m-2 px-5' type='email' name="email" placeholder='User Id' required onChange={(e) => setData({ ...data, email: e.target.value })} />
+                                                    <input className='form-control m-2 px-5' type='email' name="email" placeholder='User Id' value={data.email} required onChange={(e) => setData({ ...data, email: e.target.value })} />
                                                     <EmailIcon className='icons'/>
                                                     </div>
                                                     <div className="col-sm-12 inputBox">
-                                                    <input className='form-control m-2 px-5' type="password" name='password' placeholder='Password' required onChange={(e) => setData({ ...data, password: e.target.value })} />
+                                                    <input className='form-control m-2 px-5' type="password" name='password' placeholder='Password' value={data.password} required onChange={(e) => setData({ ...data, password: e.target.value })} />
                                                     <LockIcon className='icons'/>
                                                     </div>
                                                     <div className="col-sm-12 inputBox">
-                                                    <input className='form-control m-2 px-5' type="password" name='confirmPassword' placeholder='Confirm Password' required onChange={(e) => setCofirmPassword(e.target.value)} />
+                                                    <input className='form-control m-2 px-5' type="password" name='confirmPassword' placeholder='Confirm Password' required value={confirmPassword} onChange={(e) => setCofirmPassword(e.target.value)} />
                                                     <EnhancedEncryptionIcon className='icons'/>
                                                     </div>
                                                     <button className='signin m-2 p-1 rounded-2'>Sign Up</button>
